@@ -1,0 +1,6 @@
+[
+{ 
+  "keys": ["super+shift+d"],
+  "command": "compile_selected_es6"
+}
+]
