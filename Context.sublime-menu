@@ -1,7 +1,7 @@
 [
   {
-      "id" : "compileSelectedEs6",
-      "caption" : "compile es6",
-      "command" : "compile_selected_es6"
+    "id" : "compileSelectedEs6",
+    "caption" : "compile es6",
+    "command" : "compile_selected_es6"
   }
 ]

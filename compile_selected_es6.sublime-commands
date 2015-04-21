@@ -1,0 +1,6 @@
+[
+  {
+    "caption": "Compile Selected ES6"
+  , "command": "compile_selected_es6"
+  }
+]

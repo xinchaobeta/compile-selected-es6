@@ -1,0 +1,28 @@
+/////////////////////////////////////////////////////
+//                                                 //
+//      Compile Selected ES6 for Sublime Text      //
+//                                                 //
+/////////////////////////////////////////////////////
+
+
+IMPORTANT: Requirements
+-----------------------
+
+In order for build system to work you will need [babel](https://babeljs.io/) installed via [npm](http://nodejs.org/) and available in your `PATH`.
+
+You can learn more about packages mentioned above by following these links:
+
+https://github.com/xinchaobeta/compile-selected-es6
+
+
+
+Usage
+-----
+Select the javascript code in ES6 and then, press the shortcut 'alt+shift+d' or you can right click you mouse and select the context menu 'compile es6'
+ 
+
+
+------------------------------------------------
+Please report any issues with this package here:
+https://github.com/xinchaobeta/compile-selected-es6/issues
+------------------------------------------------

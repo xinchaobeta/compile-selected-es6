@@ -1,0 +1,8 @@
+{
+  /*
+    The directories you would like to include in $PATH environment variable.
+    example:
+    "envPATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  */
+  "envPATH": ""
+}

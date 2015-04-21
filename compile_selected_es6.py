@@ -1,14 +1,23 @@
 from subprocess import Popen, PIPE
-import sublime, sublime_plugin
+import sublime, sublime_plugin, os
 
 def isJSX(view=None):
     if view is None:
         view = sublime.active_window().active_view()
     return 'source.js' in view.scope_name(0)
 
+def settings_get(name, default=None):
+    # load up the plugin settings
+    plugin_settings = sublime.load_settings('compile_selected_es6.sublime-settings')
+    return plugin_settings.get(name, default) or default   
+
 def compile(source=''):
   command = ['babel']
-  env = {"PATH": '/Users/haha/mongodb/bin:/Users/haha/.nvm/v0.10.28/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'}
+  env = {
+    'PATH': settings_get('envPATH', os.environ.get('PATH'))
+  }
+  #debug
+  print(env)
   proc = Popen(command, env=env, cwd=None, stdout=PIPE, stdin=PIPE, stderr=PIPE)
   stat = proc.communicate(input=source.encode('utf-8'))
   return {"okay": proc.returncode == 0, "out": stat[0].decode('utf-8'), "err": stat[1].decode('utf-8')}
