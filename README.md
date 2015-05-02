@@ -34,6 +34,7 @@ Go to `Preferences > Package Settings > Compile Selected ES6 > Settings - User` 
 
 Full details in the comments in `Preferences > Package Settings > Compile Selected ES6 > Settings - Default`
 
+- Note if you changed the `stage` value in the settings, make sure you installed the lastest version of Babel whose CLI support  `--stage`
 
 ## Issues & Feature Requests
 

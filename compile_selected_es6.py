@@ -12,12 +12,17 @@ def settings_get(name, default=None):
     return plugin_settings.get(name, default) or default   
 
 def compile(source=''):
-  command = ['babel']
   env = {
     'PATH': settings_get('envPATH', os.environ.get('PATH'))
   }
-  #debug
-  print(env)
+  stage = settings_get('stage', '2')
+  # lagency babel did not support --stage arguments
+  # so if a user modified default stage, then i can sure he installed the lastest version  
+  if stage is not 2:
+    command = ['babel', '--stage', stage]
+  else:
+    command = ['babel']
+
   proc = Popen(command, env=env, cwd=None, stdout=PIPE, stdin=PIPE, stderr=PIPE)
   stat = proc.communicate(input=source.encode('utf-8'))
   return {"okay": proc.returncode == 0, "out": stat[0].decode('utf-8'), "err": stat[1].decode('utf-8')}
@@ -50,8 +55,9 @@ class CompileSelectedEs6Command(sublime_plugin.TextCommand):
     output = self.view.window().new_file()
     output.set_scratch(True)
     output.set_syntax_file('Packages/JavaScript/JavaScript.tmLanguage')
-    res = compile(Text.get(self.view))
+    res = compile(Text.get(self.view))    
     if res["okay"] is True:
         output.insert(edit, 0, res["out"])
     else:
-        output.insert(edit, 0, res["err"].split("\n")[0])
+        output.insert(edit, 0, res["err"])
+

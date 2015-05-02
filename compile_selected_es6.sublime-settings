@@ -4,5 +4,6 @@
     example:
     "envPATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   */
-  "envPATH": ""
+  "envPATH": "",
+  "stage": "2"
 }
