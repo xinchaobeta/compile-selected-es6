@@ -2,8 +2,12 @@ from subprocess import Popen, PIPE
 import sublime, sublime_plugin, os, json
 
 def readBabelrc():
-  path = sublime.active_window().extract_variables()["folder"] + '/.babelrc'
   try:
+    variables = sublime.active_window().extract_variables()
+    if "folder" in variables :
+      path = variables["folder"] + '/.babelrc'
+    elif "file_path" in variables :
+      path = variables["file_path"] + '/.babelrc'
     with open(path) as babelrc :
       config = json.load(babelrc)
   except:
