@@ -1,6 +1,6 @@
 {
   "name": "compile-selected-es6",
-  "version": "0.1.0",
+  "version": "0.2.3",
   "description": "A sublime plugin for compiling the selected es6 code on the fly, since the babel sublime plugin did not provide this feature",
   "repository": {
     "type": "git",
