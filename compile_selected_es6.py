@@ -17,7 +17,8 @@ def readBabelrc():
 def isJSX(view=None):
     if view is None:
         view = sublime.active_window().active_view()
-    return 'source.js' in view.scope_name(0).split()
+    scope_name_arr = view.scope_name(0).split()
+    return 'source.js' in scope_name_arr or 'source.js.jsx' in scope_name_arr
 
 def settings_get(name, default=None):
     # load up the plugin settings
@@ -71,9 +72,10 @@ class Text():
 class CompileSelectedEs6Command(sublime_plugin.TextCommand):
 
   def is_enabled(self):
-      return isJSX(self.view)
+    return isJSX(self.view)
 
   def run(self, edit):
+    print('hello world')
     output = self.view.window().new_file()
     output.set_scratch(True)
     output.set_syntax_file('Packages/JavaScript/JavaScript.tmLanguage')
