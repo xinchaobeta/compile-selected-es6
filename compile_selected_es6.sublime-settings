@@ -5,6 +5,12 @@
     "envPATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   */
   "envPATH": "",
+  /*
+    Check syntax of your file every time you save a file.
+  */
   "checkSyntaxOnSave": true,
+  /*
+   The babel stage.
+   */
   "stage": "2"
 }

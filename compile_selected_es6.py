@@ -93,7 +93,7 @@ class CaptureEditing(sublime_plugin.EventListener):
   def on_post_save(self, view):
       if not self.is_enabled(view):
           return
-      if settings_get("checkSyntaxOnSave", False):
+      if settings_get("checkSyntaxOnSave", True):
           res = compile(Text.get(view))
           if res["okay"] is True:
               sublime.status_message("Syntax is valid.")
