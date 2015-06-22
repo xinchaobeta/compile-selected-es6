@@ -4,7 +4,7 @@
     example:
     "envPATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   */
-  "envPATH": "",
+  "envPATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
   /*
     Check syntax of your file every time you save a file.
   */

@@ -23,7 +23,8 @@ def isJSX(view=None):
 def settings_get(name, default=None):
     # load up the plugin settings
     plugin_settings = sublime.load_settings('compile_selected_es6.sublime-settings')
-    return plugin_settings.get(name, default) or default   
+    value = plugin_settings.get(name, default)
+    return default if value is None else value
 
 def compile(source=''):
   env = {
@@ -35,7 +36,7 @@ def compile(source=''):
     stage = str(babelrc["stage"])
   # lagency babel did not support --stage arguments
   # so if a user modified default stage, then i can sure he installed the lastest version  
-  if stage is not "2":
+  if stage != "2":
     command = ['babel', '--stage', stage]
   else:
     command = ['babel']
@@ -75,7 +76,7 @@ class CompileSelectedEs6Command(sublime_plugin.TextCommand):
     return isJSX(self.view)
 
   def run(self, edit):
-    print('hello world')
+    print('--- CompileSelectedEs6Command.run ---')
     output = self.view.window().new_file()
     output.set_scratch(True)
     output.set_syntax_file('Packages/JavaScript/JavaScript.tmLanguage')
