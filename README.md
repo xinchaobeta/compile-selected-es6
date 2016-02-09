@@ -1,5 +1,7 @@
 # Compile Selected ES6 Package for Sublime Text 3
 
+## [DEPRECATED] This project has been deprecated – please use the official project [babel-sublime](https://github.com/babel/babel-sublime) instead
+
 A sublime plugin for compiling the selected es6 code on the fly, since the babel sublime plugin did not provide this feature
 
 
